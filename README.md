@@ -23,3 +23,14 @@ Key: 46A78C95
 HeaderMask: BC1558BC
 ```
 
+Used in "S.U.A.V.E. - Sport-Utility Assault Vehicle Extreme" by Blinkenlichten Productions
+
+```
+Data1.pak
+Key: F3A5DBF2
+HeaderMask: 9F116F86
+
+Data2.pak
+Key: 6C1F546B
+HeaderMask: EF61BFD5
+```
