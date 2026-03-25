@@ -133,6 +133,11 @@ int main(int argc, char* argv[])
 
 				std::string out(pakEntires[i].c_str(), pakEntires[i].length() - 1);
 				std::cout << "Processing: " << out << std::endl;
+
+				std::experimental::filesystem::path outPath(out);
+				if (outPath.has_parent_path())
+					std::experimental::filesystem::create_directories(outPath.parent_path());
+
 				std::ofstream oFile(out, std::ofstream::binary);
 				oFile.write(dataBuff.get(), size);
 
@@ -242,6 +247,10 @@ int main(int argc, char* argv[])
 				pFile.seekg(offset,pFile.beg);
 
 				std::cout << "Processing: " << pakEntires[i] << std::endl;
+
+				std::experimental::filesystem::path outPath(pakEntires[i]);
+				if (outPath.has_parent_path())
+					std::experimental::filesystem::create_directories(outPath.parent_path());
 
 				std::ofstream oFile(pakEntires[i], std::ofstream::binary);
 
