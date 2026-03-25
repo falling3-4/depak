@@ -1,0 +1,26 @@
+name: Build DePak
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build
+      run: msbuild source/depak.vcxproj /p:Configuration=Release /p:Platform=x64
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: depak-exe
+        path: source/x64/Release/depak.exe
